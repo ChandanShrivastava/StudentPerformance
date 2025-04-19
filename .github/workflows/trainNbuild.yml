@@ -1,7 +1,4 @@
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-# More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
-
-name: Build and deploy Python app Docker
+name: Build N Docker Image
 
 on:
   push:
@@ -32,8 +29,6 @@ jobs:
       
       - name: Train and save pipeline
         run: python -m src.pipeline.train_pipeline
-      
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v4

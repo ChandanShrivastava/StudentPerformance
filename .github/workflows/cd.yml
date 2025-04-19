@@ -1,6 +1,6 @@
 name: CD Pipeline
 
-# Only trigger, when the build workflow succeeded i.e. CI Pipeline
+# Only trigger, when the build workflow succeeded i.e. trainNbuild.yml
 on:
   workflow_run:
     workflows: ["Build N Docker Image"]

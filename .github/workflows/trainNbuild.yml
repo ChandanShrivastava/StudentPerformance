@@ -31,7 +31,7 @@ jobs:
         run: pip install -r requirements.txt
       
       - name: Train and save pipeline
-        run: python src/pipeline/train_pipeline.py
+        run: python -m src.pipeline.train_pipeline.py
       
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       

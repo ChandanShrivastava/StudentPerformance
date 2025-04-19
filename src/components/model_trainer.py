@@ -94,7 +94,7 @@ class ModelTrainer:
 
             # if best_model_score < 0.6:
             #     raise CustomException("No best model found")
-            logging.info(f"Best model found for both train and test data")
+            logging.info(f"Best model found: {best_model_name} with a score of {best_model_score}")
 
             #save the model path
             save_object(

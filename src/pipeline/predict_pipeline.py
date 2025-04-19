@@ -3,6 +3,7 @@ import pandas as pd
 
 from src.exception import CustomException
 from src.utils import load_object
+from src.logger import logging
 
 class PredictPipeline:
     def __init__(self):
@@ -17,6 +18,7 @@ class PredictPipeline:
 
             data_scaled = preprocessor.transform(features)
             preds = model.predict(data_scaled)
+            logging.info(f"Prediction: {preds}")
             return preds
         except Exception as e:
             raise CustomException(e, sys)

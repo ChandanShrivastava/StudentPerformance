@@ -6,7 +6,7 @@ WORKDIR /app
 
 # Copy all files from bike_sharing_api/app to /app in the container
 #COPY app /app
-MKDIR /app/artifacts
+RUN mkdir -p /app/artifacts
 COPY artifacts/*.csv /app/artifacts/*.csv
 COPY artifacts/*.pkl /app/artifacts/*.pkl
 

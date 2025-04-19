@@ -20,11 +20,11 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Copy the rest of the application code into the container at /app
 COPY . /app
 
-# Make port 80 available to the world outside this container
-EXPOSE 80
+# Expose port 5000 (default Flask port)
+EXPOSE 5000
 
 # Define environment variable
 ENV PYTHONUNBUFFERED=1
 
-# Run the application
-CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "80"]
+# Run the Flask application
+CMD ["python", "application.py"]

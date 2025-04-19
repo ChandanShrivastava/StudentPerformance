@@ -61,5 +61,5 @@ jobs:
 
       - name: Build and push the Docker image for FastAPI app
         run: |
-          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/studentPerf_api:latest .
-          docker push ${{ secrets.DOCKERHUB_USERNAME }}/studentPerf_api:latest
+          docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/studentperf_api:latest .
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/studentperf_api:latest

@@ -1,4 +1,3 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
@@ -15,10 +14,13 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Clear Runner Cache
+        run: rm -rf ~/.npm ~/.cache ~/.pip
+        
+      - uses: actions/checkout@v4
 
       - name: Set up Python version
-        uses: actions/setup-python@v1
+        uses: actions/setup-python@v4
         with:
           python-version: '3.8'
 
@@ -29,16 +31,17 @@ jobs:
       
       - name: Install dependencies
         run: pip install -r requirements.txt
-        
+      
+      - name: Train and save pipeline
+        run: python src/pipeline/train_pipeline.py
+      
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
       
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
           name: python-app
-          path: |
-            . 
-            !venv/
+          path: artifacts/*.pk1
 
   deploy:
     runs-on: ubuntu-latest

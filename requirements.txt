@@ -6,4 +6,5 @@ catboost
 xgboost
 dill
 Flask
+uvicorn>=0.16.0,<0.18.0
 # -e .
